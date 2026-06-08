@@ -1,0 +1,13 @@
+# Tako local config and state
+.tako/
+dist/
+
+# Logs
+*.log
+
+# Binaries
+main
+demo-app
+
+# OS files
+.DS_Store
