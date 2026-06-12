@@ -1,8 +1,8 @@
 package foo
 
 import (
-	"github.com/takoterm/tako/internal/plugin"
-	"github.com/takoterm/tako/internal/tako"
+	"github.com/gettako/tako/internal/plugin"
+	"github.com/gettako/tako/internal/tako"
 )
 
 func init() {

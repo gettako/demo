@@ -4,9 +4,9 @@ import (
 	"strings"
 
 	"charm.land/lipgloss/v2"
-	"github.com/takoterm/tako/contracts"
-	"github.com/takoterm/tako/internal/plugin"
-	"github.com/takoterm/tako/internal/tako"
+	"github.com/gettako/tako/contracts"
+	"github.com/gettako/tako/internal/plugin"
+	"github.com/gettako/tako/internal/tako"
 )
 
 var helpStyle = lipgloss.NewStyle().

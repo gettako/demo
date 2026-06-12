@@ -1,6 +1,6 @@
 package status
 
-import "github.com/takoterm/tako/internal/plugin"
+import "github.com/gettako/tako/internal/plugin"
 
 // Manifest declares the identity and capabilities of the Status plugin.
 var Manifest = plugin.Manifest{

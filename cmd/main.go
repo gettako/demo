@@ -5,17 +5,17 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/takoterm/tako"
-	"github.com/takoterm/tako/contracts"
-	"github.com/takoterm/tako/demo/commands"
-	"github.com/takoterm/tako/demo/components"
-	"github.com/takoterm/tako/demo/layouts"
-	"github.com/takoterm/tako/demo/services"
-	"github.com/takoterm/tako/pkg/adapter/bubbletea"
+	"github.com/gettako/tako"
+	"github.com/gettako/tako/contracts"
+	"github.com/gettako/tako/demo/commands"
+	"github.com/gettako/tako/demo/components"
+	"github.com/gettako/tako/demo/layouts"
+	"github.com/gettako/tako/demo/services"
+	"github.com/gettako/tako/pkg/adapter/bubbletea"
 
-	_ "github.com/takoterm/tako/demo/plugins/fzf"
-	_ "github.com/takoterm/tako/demo/plugins/help"
-	_ "github.com/takoterm/tako/demo/plugins/status"
+	_ "github.com/gettako/tako/demo/plugins/fzf"
+	_ "github.com/gettako/tako/demo/plugins/help"
+	_ "github.com/gettako/tako/demo/plugins/status"
 )
 
 func main() {

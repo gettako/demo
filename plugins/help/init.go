@@ -1,6 +1,6 @@
 package help
 
-import "github.com/takoterm/tako/internal/plugin"
+import "github.com/gettako/tako/internal/plugin"
 
 func init() {
 	plugin.Register(Manifest, func() plugin.Lifecycle {

@@ -1,6 +1,6 @@
 package help
 
-import "github.com/takoterm/tako/internal/plugin"
+import "github.com/gettako/tako/internal/plugin"
 
 // Manifest declares the identity and capabilities of the Help plugin.
 var Manifest = plugin.Manifest{

@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"charm.land/lipgloss/v2"
-	"github.com/takoterm/tako/contracts"
+	"github.com/gettako/tako/contracts"
 )
 
 // CounterComponent is a self-contained UI widget implementing contracts.Component.

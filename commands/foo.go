@@ -2,7 +2,7 @@ package commands
 
 import (
 	"flag"
-	"github.com/takoterm/tako/internal/console/cli"
+	"github.com/gettako/tako/internal/console/cli"
 )
 
 // FooCommand implements the cli.Command interface.

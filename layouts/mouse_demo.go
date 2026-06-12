@@ -14,8 +14,8 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
-	"github.com/takoterm/tako/internal/router"
-	takoCtx "github.com/takoterm/tako/internal/tako"
+	"github.com/gettako/tako/internal/router"
+	takoCtx "github.com/gettako/tako/internal/tako"
 )
 
 // ── App State ─────────────────────────────────────────────────────────────────
