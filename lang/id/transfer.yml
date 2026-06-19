@@ -1,0 +1,7 @@
+title: "Kirim Uang"
+dest: "Rekening Tujuan"
+amount: "Jumlah"
+confirm: "Apakah Anda yakin ingin mengirim %s ke %s?"
+success: "Transfer berhasil!"
+pin_required: "PIN Dibutuhkan"
+pin_prompt: "Masukkan PIN Anda untuk melanjutkan:"

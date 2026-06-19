@@ -1,0 +1,17 @@
+app:
+  title: "Terminal TakoBank"
+nav:
+  dashboard: "Beranda"
+  transfer: "Transfer"
+  history: "Riwayat"
+dashboard:
+  balance: "Saldo Saat Ini"
+  rates: "Nilai Tukar Mata Uang"
+transfer:
+  title: "Kirim Uang"
+  dest: "Rekening Tujuan"
+  amount: "Jumlah"
+  confirm: "Apakah Anda yakin ingin mengirim :amount ke :dest?"
+  success: "Transfer berhasil!"
+  pin_required: "PIN Dibutuhkan"
+  pin_prompt: "Masukkan PIN Anda untuk melanjutkan:"

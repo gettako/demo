@@ -1,0 +1,7 @@
+title: "Send Money"
+dest: "Destination Account"
+amount: "Amount"
+confirm: "Are you sure you want to transfer :amount to :dest?"
+success: "Transfer successful!"
+pin_required: "PIN Required"
+pin_prompt: "Enter your PIN to continue:"

@@ -1,0 +1,4 @@
+name: "TakoBank"
+locale: "en"
+theme: "dark"
+env: "production" # Headless/local
