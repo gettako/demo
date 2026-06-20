@@ -67,9 +67,10 @@ func (c *Layout) Keys(km contracts.KeyManager) {
 	km.Bind("t", func() { c.app.Router().GoTo("transfer") })
 	km.Bind("h", func() { c.app.Router().GoTo("history") })
 	km.Bind("p", func() { c.app.Router().GoTo("profile") })
+	km.Bind("s", func() { c.app.Router().GoTo("settings") })
 
 	// Arrow keys for tab navigation
-	routes := []string{"dashboard", "transfer", "history", "profile"}
+	routes := []string{"dashboard", "transfer", "history", "profile", "settings"}
 	navigate := func(offset int) {
 		current := c.app.Router().Current().Name
 		idx := -1
@@ -88,22 +89,14 @@ func (c *Layout) Keys(km contracts.KeyManager) {
 	km.Bind("right", func() { navigate(1) })
 
 	// Number shortcuts (Alt+1,2,3,4) and F-keys
-	km.Bind("alt+1", func() { c.app.Router().GoTo("dashboard") })
-	km.Bind("alt+2", func() { c.app.Router().GoTo("transfer") })
-	km.Bind("alt+3", func() { c.app.Router().GoTo("history") })
-	km.Bind("alt+4", func() { c.app.Router().GoTo("profile") })
-
-	km.Bind("1", func() { c.app.Router().GoTo("dashboard") })
-	km.Bind("2", func() { c.app.Router().GoTo("transfer") })
-	km.Bind("3", func() { c.app.Router().GoTo("history") })
-	km.Bind("4", func() { c.app.Router().GoTo("profile") })
-
-	km.Bind("f1", func() { c.app.Router().GoTo("dashboard") })
-	km.Bind("f2", func() { c.app.Router().GoTo("transfer") })
-	km.Bind("f3", func() { c.app.Router().GoTo("history") })
-	km.Bind("f4", func() { c.app.Router().GoTo("profile") })
+	km.Bind("alt+1 1 f1", func() { c.app.Router().GoTo("dashboard") })
+	km.Bind("alt+2 2 f2", func() { c.app.Router().GoTo("transfer") })
+	km.Bind("alt+3 3 f3", func() { c.app.Router().GoTo("history") })
+	km.Bind("alt+4 4 f4", func() { c.app.Router().GoTo("profile") })
+	km.Bind("alt+5 5 f5", func() { c.app.Router().GoTo("settings") })
 }
 
+//nolint:funlen
 func (c *Layout) Render() string {
 	width, height := c.app.UI().Dimensions()
 	lang := c.app.Lang()
@@ -134,6 +127,7 @@ func (c *Layout) Render() string {
 		c.renderNavItem("[F2] "+lang.T("nav.transfer"), "/transfer", currentRoute),
 		c.renderNavItem("[F3] "+lang.T("nav.history"), "/history", currentRoute),
 		c.renderNavItem("[F4] Profile", "/profile", currentRoute),
+		c.renderNavItem("[F5] Settings", "/settings", currentRoute),
 	}
 	navBar := lipgloss.JoinHorizontal(lipgloss.Center, navItems...)
 	navBar = lipgloss.NewStyle().Width(innerWidth).Align(lipgloss.Center).PaddingTop(1).PaddingBottom(1).Render(navBar)
@@ -162,7 +156,8 @@ func (c *Layout) Render() string {
 	}
 
 	// FOOTER
-	footerText := "global: [ctrl+q] quit | [ctrl+t] theme | [ctrl+l] lang | nav: [← →] change tab"
+	activeLang := strings.ToUpper(lang.Active())
+	footerText := fmt.Sprintf("global: [ctrl+q] quit | [ctrl+t] theme | [ctrl+l] lang (%s) | nav: [← →] change tab", activeLang)
 	footer := lipgloss.NewStyle().
 		Foreground(MutedColor).
 		Width(innerWidth).

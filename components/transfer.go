@@ -41,26 +41,29 @@ func (c *Transfer) Init(ctx contracts.Context) {
 	c.focusIndex = -1
 }
 
+//nolint:funlen
 func (c *Transfer) Keys(km contracts.KeyManager) {
 	km.Bind("tab", func() {
-		if c.focusIndex == -1 {
+		switch c.focusIndex {
+		case -1:
 			c.focusIndex = 0
 			c.destInput.Focus()
-		} else if c.focusIndex == 0 {
+		case 0:
 			c.focusIndex = 1
 			c.destInput.Blur()
 			c.amtInput.Focus()
-		} else {
+		default:
 			c.focusIndex = -1
 			c.amtInput.Blur()
 		}
 	})
 
 	km.Bind("down", func() {
-		if c.focusIndex == -1 {
+		switch c.focusIndex {
+		case -1:
 			c.focusIndex = 0
 			c.destInput.Focus()
-		} else if c.focusIndex == 0 {
+		case 0:
 			c.focusIndex = 1
 			c.destInput.Blur()
 			c.amtInput.Focus()
@@ -68,11 +71,12 @@ func (c *Transfer) Keys(km contracts.KeyManager) {
 	})
 
 	km.Bind("up", func() {
-		if c.focusIndex == 1 {
+		switch c.focusIndex {
+		case 1:
 			c.focusIndex = 0
 			c.amtInput.Blur()
 			c.destInput.Focus()
-		} else if c.focusIndex == 0 {
+		case 0:
 			c.focusIndex = -1
 			c.destInput.Blur()
 		}
@@ -110,12 +114,13 @@ func (c *Transfer) UpdateNative(msg any) (any, bool) {
 	consumed := false
 
 	if teaMsg, ok := msg.(tea.Msg); ok {
-		if c.focusIndex == 0 {
+		switch c.focusIndex {
+		case 0:
 			c.destInput, cmd = c.destInput.Update(teaMsg)
 			if cmd != nil {
 				cmds = append(cmds, cmd)
 			}
-		} else if c.focusIndex == 1 {
+		case 1:
 			c.amtInput, cmd = c.amtInput.Update(teaMsg)
 			if cmd != nil {
 				cmds = append(cmds, cmd)
@@ -172,11 +177,11 @@ func (c *Transfer) processTransfer(dest string, amount float64) {
 		Timestamp: time.Now(),
 	}
 
-	// Save persistent history record using the Context().Storage() interface
+	// Save persistent history record using the Context().KV() interface
 	var history []Transaction
-	_ = c.app.Storage().Get("history.all", &history)
+	_ = c.app.KV().Get("history.all", &history)
 	history = append(history, record)
-	_ = c.app.Storage().Set("history.all", history)
+	_ = c.app.KV().Set("history.all", history)
 
 	// Keep receipt for legacy purposes just in case
 	recJSON, _ := json.Marshal(record)

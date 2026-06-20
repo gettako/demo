@@ -2,9 +2,9 @@ module banking
 
 go 1.26.3
 
-replace gettako.dev/tako => ../..
+replace gettako.dev/tako => ..
 
-replace gettako.dev/tako/pkg/adapter/ui/bubbletea => ../../pkg/adapter/ui/bubbletea
+replace gettako.dev/tako/pkg/adapter/ui/bubbletea => ../pkg/adapter/ui/bubbletea
 
 require (
 	charm.land/bubbles/v2 v2.1.0

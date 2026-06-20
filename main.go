@@ -40,6 +40,7 @@ func main() {
 		r.Route("/transfer", components.NewTransfer(app)).Name("transfer")
 		r.Route("/history", components.NewHistory(app)).Name("history")
 		r.Route("/profile", components.NewProfile(app)).Name("profile")
+		r.Route("/settings", components.NewSettings(app)).Name("settings")
 	})
 
 	// Set Default Route

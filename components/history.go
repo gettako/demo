@@ -34,7 +34,7 @@ func (c *History) Init(ctx contracts.Context) {
 	}
 
 	var history []Transaction
-	_ = ctx.Storage().Get("history.all", &history)
+	_ = ctx.KV().Get("history.all", &history)
 
 	var rows []table.Row
 	for _, tx := range history {
@@ -75,7 +75,7 @@ func (c *History) Init(ctx contracts.Context) {
 
 func (c *History) Reload() {
 	var history []Transaction
-	_ = c.app.Storage().Get("history.all", &history)
+	_ = c.app.KV().Get("history.all", &history)
 
 	var rows []table.Row
 	for _, tx := range history {

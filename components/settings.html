@@ -1,0 +1,18 @@
+<!--suppress HtmlUnknownTag, HtmlUnknownAttribute -->
+<view class="p-2 border-rounded border-color-[#ffffff]">
+    <text class="text-[#cb6843] font-bold py-1">⚙️  Settings Screen (HTML View Engin</text>
+    <text class="py-1">Hello, welcome to {{ .AppName }} Settings.</text>
+
+    <demo-card>
+        <view class="py-[1]">
+            <text class="font-bold text-[#cb6843]">Search Settings</text>
+            <demo-input></demo-input>
+            <text class="text-[#888888] italic py-[1]" v-if="gt (len .SearchQuery) 0">You typed: {{ .SearchQuery }}</text>
+        </view>
+    </demo-card>
+
+
+    <view class="py-[1]">
+        <demo-table></demo-table>
+    </view>
+</view>

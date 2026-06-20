@@ -5,7 +5,6 @@ package console
 
 import (
 	"fmt"
-
 	"gettako.dev/tako/contracts"
 )
 
@@ -34,13 +33,12 @@ func (c *ExportCommand) Handle(ctx contracts.CommandContext) error {
 	fmt.Printf("Exporting transaction history for month: %s\n", month)
 	fmt.Println("Connecting to Storage Manager...")
 
-	storage := c.app.Storage()
-
 	// Simulate reading history and generating CSV
 	csvContent := "ID,Dest,Amount,Status\n1,Budi,50000,OK\n2,Andi,120000,OK\n3,Susi,15000000,BLOCKED\n"
 	filename := fmt.Sprintf("export_%s.csv", month)
 
-	err := storage.Set(filename, []byte(csvContent))
+	// Use the new Storage FileSystem abstraction
+	err := c.app.Storage().Put(filename, []byte(csvContent))
 	if err != nil {
 		return fmt.Errorf("failed to write export: %w", err)
 	}
