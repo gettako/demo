@@ -1,0 +1,20 @@
+<view class="p-2 border-rounded border-color-[#00ff00]">
+    <text class="font-bold text-[#cb6843] pb-[1]">{{ .Title }}</text>
+    
+    <x-card>
+        <x-slot name="header">
+            <text class="font-bold">Livewire-style Reactivity Demo</text>
+        </x-slot>
+
+        <view class="py-[1]">
+            <text>Current Count: {{ .Count }}</text>
+            <text t-if="gt .Count 10" class="text-[#ff0000] italic"> You clicked a lot!</text>
+        </view>
+
+        <!-- Using event bindings which will be supported soon, for now we bind in Keys() -->
+        <view class="pt-[1]">
+            <x-button @press="Increment">[ENTER] Increment</x-button>
+            <x-button @press="Reset">[R] Reset</x-button>
+        </view>
+    </x-card>
+</view>
